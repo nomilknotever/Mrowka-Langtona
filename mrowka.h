@@ -42,7 +42,7 @@ void printStart(int size){
 	}
 	
 void createMap(char* string,int x, int y, ant mrowka, int pola[]){
-	memset(string,0,1600);
+	memset(string,0,x*y*sizeof(int));
 	strcat(string,LINE_DOWN_RIGHT);
                 for(int k=0; k < x; k++){
                         strcat(string,LINE_HORIZONTAL);
@@ -52,6 +52,7 @@ void createMap(char* string,int x, int y, ant mrowka, int pola[]){
 		for(int a = 0; a < y; a++){
 			strcat(string,LINE_VERTICAL);
 			for(int b = 0; b < x; b++){
+				printf("%d ",pola[a*x+b]);
 				
 				if(a == mrowka.currentY && b == mrowka.currentX){
 					switch(mrowka.zwrot){
@@ -76,10 +77,10 @@ void createMap(char* string,int x, int y, ant mrowka, int pola[]){
 							break;
 					}
 				} 
-				else if(pola[a*x+b] == 1)
-					strcat(string,SQUARE_BLACK);
-				else{
+				else if(pola[a*x+b] == 0)
 					strcat(string,SQUARE_WHITE);
+				else{
+					strcat(string,SQUARE_BLACK);
 				}
 			}
 			strcat(string,LINE_VERTICAL);

@@ -36,7 +36,9 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 'i':
-                iteracje = atoi(optarg);
+		if(atoi(optarg) > 0 && atoi(optarg) < 500){
+                	iteracje = atoi(optarg);}
+		else{printf("Zostala wpisana zla liczba iteracji, przyjeto liczbe 5\n");}
                 break;
             case 'z':
                 if (atoi(optarg) == 1 || atoi(optarg) == 2 || atoi(optarg) == 3 || atoi(optarg) == 4) {
@@ -76,8 +78,8 @@ int main(int argc, char *argv[]) {
     if(percentFlag == 1){
 	 for(int q = 0; q < x*y;q++){
     		if(rand() % 100 < procent){
-			pola[q] = 1;	
-	}else{pola[q]=0;}
+			pola[q] = 0;	
+	}else{pola[q]=1;}
 	 }
 	 
     }
@@ -95,7 +97,7 @@ int main(int argc, char *argv[]) {
 	else{
         printf("%s", mapa);}
 
-        if (pola[mrowka.currentX + mrowka.currentY * x] == 1) { // czarny - obrot w lewo
+        if (pola[mrowka.currentX + mrowka.currentY * x] == 0) { // bialy - obrot w prawo
 
             switch (mrowka.zwrot) {
                 case 1:
@@ -131,8 +133,8 @@ int main(int argc, char *argv[]) {
                     }
                     break;
             }
-        } else { // bialy - obrot w prawo
-            switch (mrowka.zwrot) {
+        } else { // czarny - obrot w lewo            	
+		 switch (mrowka.zwrot) {
                 case 1:
                     mrowka.zwrot = 2;
                     if (mrowka.currentX < x - 1) {
