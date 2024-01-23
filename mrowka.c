@@ -1,5 +1,5 @@
 #include "mrowka.h"
-
+#include "plik.h"
 int main(int argc, char *argv[]) {
     // 1-dlugosc X 2- dlugos Y 3- liczba iteracji 4-
     ant mrowka;
@@ -89,7 +89,11 @@ int main(int argc, char *argv[]) {
     while (dotychczasoweIteracje < iteracje && exitFlag == 0) {
 
         createMap(mapa, x, y, mrowka, pola);
-        printf("%s", mapa);
+	if(fileFlag == 1){
+		saveToFile(przedrostek,mapa,dotychczasoweIteracje+1);
+	}
+	else{
+        printf("%s", mapa);}
 
         if (pola[mrowka.currentX + mrowka.currentY * x] == 1) { // czarny - obrot w lewo
 

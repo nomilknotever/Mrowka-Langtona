@@ -56,16 +56,20 @@ void createMap(char* string,int x, int y, ant mrowka, int pola[]){
 				if(a == mrowka.currentY && b == mrowka.currentX){
 					switch(mrowka.zwrot){
 						case 1:
-							strcat(string,ARROW_NORTH_BLACK);
+							if(pola[a*x+b] == 1){strcat(string,ARROW_NORTH_BLACK);}
+							else{strcat(string,ARROW_NORTH_WHITE);}
 							break;
 						 case 2:
-                                                        strcat(string,ARROW_EAST_BLACK);
+                                                        if(pola[a*x+b] == 1){strcat(string,ARROW_EAST_BLACK);}
+                                                        else{strcat(string,ARROW_EAST_WHITE);}
                                                         break;
 						 case 3:
-                                                        strcat(string,ARROW_SOUTH_BLACK);
+                                                        if(pola[a*x+b] == 1){strcat(string,ARROW_SOUTH_BLACK);}
+                                                        else{strcat(string,ARROW_SOUTH_WHITE);}
                                                         break;
 						 case 4:
-                                                        strcat(string,ARROW_WEST_BLACK);
+                                                        if(pola[a*x+b] == 1){strcat(string,ARROW_WEST_BLACK);}
+                                                        else{strcat(string,ARROW_WEST_WHITE);}
                                                         break;
 						default:
 							strcat(string,"XDD");
