@@ -78,8 +78,8 @@ int main(int argc, char *argv[]) {
     if(percentFlag == 1){
 	 for(int q = 0; q < x*y;q++){
     		if(rand() % 100 < procent){
-			pola[q] = 0;	
-	}else{pola[q]=1;}
+			pola[q] = 1;	
+	}else{pola[q]=0;}
 	 }
 	 
     }
